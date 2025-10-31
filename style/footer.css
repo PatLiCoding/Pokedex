@@ -1,0 +1,24 @@
+.footerMaxWidht {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  gap: 8px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: orange;
+  border-top: 1px solid gray;
+  color: #4d2600;
+}

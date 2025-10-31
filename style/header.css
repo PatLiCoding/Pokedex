@@ -1,0 +1,19 @@
+.headerMaxWidht {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0;
+  font-family: "Raleway", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: orange;
+  border-bottom: 1px solid gray;
+}
