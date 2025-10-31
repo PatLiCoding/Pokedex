@@ -1,5 +1,6 @@
 .headerMaxWidht {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
   width: 100%;
@@ -14,6 +15,49 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: orange;
+  background-color: rgb(3, 64, 168);
   border-bottom: 1px solid gray;
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerLogo {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+}
+
+.headline:hover {
+  filter: drop-shadow(5px 5px 5px rgb(179, 173, 173));
+  cursor: pointer;
+}
+
+.searchArea {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  border-radius: 15px;
+  padding: 8px 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  border: none;
+}
+
+.searchInput:hover {
+  filter: drop-shadow(5px 5px 5px rgb(251, 250, 250));
+  cursor: pointer;
+}
+
+.magnifyingGlass {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
 }
