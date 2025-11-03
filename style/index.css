@@ -13,3 +13,22 @@ main {
   font-weight: 300;
   background-color: rgb(2, 55, 82);
 }
+
+#pokedexContant {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 24px 16px;
+}
+
+.pokemonContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgb(9, 81, 203);
+  padding: 24px;
+  margin: 8px;
+  height: 400px;
+  width: 300px;
+}
