@@ -36,5 +36,12 @@ function renderPokedex() {
   for (let i = 0; i < responseJsonPokemon.results.length; i++) {
     document.getElementById("pokedexContant").innerHTML +=
       getTemplatesPokedexContent(i);
+    renderPokemonTyp(i);
+  }
+}
+
+function renderPokemonTyp(j) {
+  for (let i = 0; i < responseJsonPokemonDetail[j].types.length; i++) {
+    document.getElementById(`id${j}`).innerHTML += getTemplatesPokedexTyp(j, i);
   }
 }

@@ -33,8 +33,24 @@ main {
   width: 300px;
 }
 
+.headline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pokemonImgBox {
+  display: flex;
+  justify-content: center;
+}
+
 .pokemonImage {
-  height: 120px;
-  width: 120px;
+  height: 140px;
+  width: 140px;
   object-fit: cover;
+}
+
+.typBox {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
