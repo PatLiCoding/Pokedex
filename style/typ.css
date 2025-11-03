@@ -20,7 +20,7 @@
   background-color: #2c9be3;
 }
 
-.bgElectro {
+.bgElectric {
   background-color: #ffdc00;
 }
 
@@ -44,7 +44,7 @@
   background-color: #a67439;
 }
 
-.bgFight {
+.bgFighting {
   background-color: #bb5544;
 }
 
@@ -52,7 +52,7 @@
   background-color: #74cfc0;
 }
 
-.bgPsycho {
+.bgPsychic {
   background-color: #ff6380;
 }
 
@@ -70,4 +70,8 @@
 
 .bgSteel {
   background-color: #aaaabb;
+}
+
+.bgFairy {
+  background-color: pink;
 }
