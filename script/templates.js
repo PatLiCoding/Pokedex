@@ -3,13 +3,13 @@ function getTemplatesPokedexContent(i) {
         <div class="pokemonContainer">
           <div class="headline">
             <p>#${i}</p>
-            <h2>${responseJson.results[i].name}</h2>
+            <h2>${responseJsonPokemonDetail[i].name}</h2>
           </div>
           <div class="pokemonImgBox">
-            <img src="${responseJson.results[i].url}">
+            <img class="pokemonImage" src="${responseJsonPokemonDetail[i].sprites.front_default}">
           </div>
           <div class="typBox">
-            <p>Typ</p>
+            <p id="id${i}"></p>
           </div>
         </div>`;
 }

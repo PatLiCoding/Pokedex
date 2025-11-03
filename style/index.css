@@ -29,6 +29,12 @@ main {
   background-color: rgb(9, 81, 203);
   padding: 24px;
   margin: 8px;
-  height: 400px;
+  height: 240px;
   width: 300px;
+}
+
+.pokemonImage {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
 }

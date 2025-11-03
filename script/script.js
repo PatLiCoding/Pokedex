@@ -1,11 +1,30 @@
-let responseJson = [];
+let responseJsonPokemon = [];
+let responseJsonPokemonDetail = [];
 
 async function fetchPokemon() {
-  let response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
-  );
-  responseJson = await response.json();
-  console.log(responseJson);
+  try {
+    let response = await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+    );
+    responseJsonPokemon = await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log(responseJsonPokemon);
+  fetchPokemonDetail();
+}
+
+async function fetchPokemonDetail() {
+  try {
+    for (let i = 0; i < responseJsonPokemon.results.length; i++) {
+      let response = await fetch(responseJsonPokemon.results[i].url);
+      responseJsonPokemonDetail.push(await response.json());
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(responseJsonPokemonDetail);
   renderPokedex();
 }
 
@@ -14,7 +33,7 @@ function init() {
 }
 
 function renderPokedex() {
-  for (let i = 0; i < responseJson.results.length; i++) {
+  for (let i = 0; i < responseJsonPokemon.results.length; i++) {
     document.getElementById("pokedexContant").innerHTML +=
       getTemplatesPokedexContent(i);
   }
