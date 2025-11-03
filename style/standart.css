@@ -49,11 +49,3 @@ h2 {
 h3 {
   font-family: "Raleway", Arial;
 }
-
-h2:hover {
-  cursor: default;
-}
-
-p:hover {
-  cursor: default;
-}

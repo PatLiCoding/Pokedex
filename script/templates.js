@@ -1,7 +1,7 @@
 function getTemplatesPokedexContent(i) {
   return /*HTML*/ `
         <div class="pokemonContainer">
-          <div class="headline">
+          <div class="pokemonCardHeadline">
             <p>#${i + 1}</p>
             <h2>${
               responseJsonPokemonDetail[i].name.charAt(0).toUpperCase() +

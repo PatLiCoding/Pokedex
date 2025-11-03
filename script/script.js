@@ -10,8 +10,6 @@ async function fetchPokemon() {
   } catch (error) {
     console.log(error);
   }
-
-  console.log(responseJsonPokemon);
   fetchPokemonDetail();
 }
 
