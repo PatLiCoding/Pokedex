@@ -58,12 +58,13 @@ h1 {
 .pokemonContainer {
   display: flex;
   flex-direction: column;
+  gap: 8px;
   border: 1px solid white;
   border-radius: 10px;
   background-color: rgb(9, 81, 203);
   padding: 24px;
   margin: 8px;
-  height: 240px;
+  height: 260px;
   width: 300px;
   transition: all 125ms ease-in-out;
 }
@@ -83,6 +84,7 @@ h1 {
 .pokemonImgBox {
   display: flex;
   justify-content: center;
+  border-radius: 15px;
 }
 
 .pokemonImage {

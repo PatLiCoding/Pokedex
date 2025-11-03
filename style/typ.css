@@ -1,8 +1,14 @@
+.bgBorder {
+  padding: 4px 6px;
+  border: 1px solid white;
+  border-radius: 25px;
+}
+
 .bgFire {
   background-color: #ff421c;
 }
 
-.bgGress {
+.bgGrass {
   background-color: #62bc5a;
 }
 
