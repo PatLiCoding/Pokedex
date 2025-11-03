@@ -1,37 +1,38 @@
-let responseJsonPokemon = [];
-let responseJsonPokemonDetail = [];
+let pokemon = [];
+let pokemonDetail = [];
+
+async function init() {
+  pokemon = await fetchPokemon();
+  await fetchPokemonDetail();
+  renderPokedex();
+}
 
 async function fetchPokemon() {
+  let responseJson = [];
   try {
     let response = await fetch(
       "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
     );
-    responseJsonPokemon = await response.json();
+    responseJson = await response.json();
   } catch (error) {
     console.log(error);
   }
-  fetchPokemonDetail();
+  return responseJson;
 }
 
 async function fetchPokemonDetail() {
   try {
-    for (let i = 0; i < responseJsonPokemon.results.length; i++) {
-      let response = await fetch(responseJsonPokemon.results[i].url);
-      responseJsonPokemonDetail.push(await response.json());
+    for (let i = 0; i < pokemon.results.length; i++) {
+      let response = await fetch(pokemon.results[i].url);
+      pokemonDetail.push(await response.json());
     }
   } catch (error) {
     console.log(error);
   }
-  console.log(responseJsonPokemonDetail);
-  renderPokedex();
-}
-
-function init() {
-  fetchPokemon();
 }
 
 function renderPokedex() {
-  for (let i = 0; i < responseJsonPokemon.results.length; i++) {
+  for (let i = 0; i < pokemon.results.length; i++) {
     document.getElementById("pokedexContant").innerHTML +=
       getTemplatesPokedexContent(i);
     renderPokemonTyp(i);
@@ -39,7 +40,7 @@ function renderPokedex() {
 }
 
 function renderPokemonTyp(j) {
-  for (let i = 0; i < responseJsonPokemonDetail[j].types.length; i++) {
+  for (let i = 0; i < pokemonDetail[j].types.length; i++) {
     document.getElementById(`id${j}`).innerHTML += getTemplatesPokedexTyp(j, i);
   }
 }

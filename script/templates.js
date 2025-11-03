@@ -4,13 +4,13 @@ function getTemplatesPokedexContent(i) {
           <div class="pokemonCardHeadline">
             <p>#${i + 1}</p>
             <h2>${
-              responseJsonPokemonDetail[i].name.charAt(0).toUpperCase() +
-              responseJsonPokemonDetail[i].name.slice(1).toLowerCase()
+              pokemonDetail[i].name.charAt(0).toUpperCase() +
+              pokemonDetail[i].name.slice(1).toLowerCase()
             }</h2>
           </div>
           <div class="pokemonImgBox">
             <img class="pokemonImage" src="${
-              responseJsonPokemonDetail[i].sprites.front_default
+              pokemonDetail[i].sprites.front_default
             }">
           </div>
           <div id="id${i}" class="typBox">
@@ -21,7 +21,7 @@ function getTemplatesPokedexContent(i) {
 function getTemplatesPokedexTyp(j, i) {
   return /*HTML*/ `
     <p> ${
-      responseJsonPokemonDetail[j].types[i].type.name.charAt(0).toUpperCase() +
-      responseJsonPokemonDetail[j].types[i].type.name.slice(1).toLowerCase()
+      pokemonDetail[j].types[i].type.name.charAt(0).toUpperCase() +
+      pokemonDetail[j].types[i].type.name.slice(1).toLowerCase()
     }</p>`;
 }
