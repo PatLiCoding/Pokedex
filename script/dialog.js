@@ -41,3 +41,23 @@ function hiddenBody() {
 function showBody() {
   document.body.style.overflow = "";
 }
+
+function changeToPreviousPokemon(i) {
+  if (i > 0) {
+    document.getElementById("dialogPokemonContent").innerHTML =
+      getTemplatesDialogPokedexContent(i - 1);
+    renderPokemonTypDialog(i - 1);
+  } else {
+    return;
+  }
+}
+
+function changeToNextPokemon(i) {
+  if (i < pokemon.results.length - 1) {
+    document.getElementById("dialogPokemonContent").innerHTML =
+      getTemplatesDialogPokedexContent(i + 1);
+    renderPokemonTypDialog(i + 1);
+  } else {
+    closeDialog();
+  }
+}

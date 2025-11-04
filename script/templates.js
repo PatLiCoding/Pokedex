@@ -42,15 +42,19 @@ function getTemplatesDialogPokedexContent(i) {
               pokemonDetail[i].name.slice(1).toLowerCase()
             }</h2>
           </div>
-          <div class="pokemonImgBox bg${
+          <div class="pokemonImgBoxDialog bg${
             pokemonDetail[i].types[0].type.name.charAt(0).toUpperCase() +
             pokemonDetail[i].types[0].type.name.slice(1).toLowerCase()
           }"">
+            <button class="pokemonChangeBtn" onclick="changeToPreviousPokemon(${i})">
+            <
+            </button>
             <img class="pokemonImageDialog" src="${
               pokemonDetail[i].sprites.front_default
             }">
+            <button class="pokemonChangeBtn" onclick="changeToNextPokemon(${i})">></button>
           </div>
-          <div id="idDialog${i}" class="typBox">
-          </div>
+          <div id="idDialog${i}" class="typBox"></div>
+          <div class="dialogPokemonNav"></div>
         </div>`;
 }

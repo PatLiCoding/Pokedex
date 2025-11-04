@@ -64,6 +64,25 @@ dialog::backdrop {
   gap: 8px;
 }
 
+.pokemonImgBoxDialog {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+
 .pokemonImageDialog {
   height: 180px;
+}
+
+.pokemonChangeBtn {
+  border: none;
+  padding: 8px;
+  font-weight: 500;
+  color: white;
+  background-color: rgba(28, 74, 153, 0.5);
+}
+
+.pokemonChangeBtn:hover {
+  cursor: pointer;
 }
