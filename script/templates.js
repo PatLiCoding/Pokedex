@@ -55,6 +55,38 @@ function getTemplatesDialogPokedexContent(i) {
             <button class="pokemonChangeBtn" onclick="changeToNextPokemon(${i})">></button>
           </div>
           <div id="idDialog${i}" class="typBox"></div>
-          <div class="dialogPokemonNav"></div>
+          <nav class="dialogPokemonDetailNav">
+            |
+            <a onclick="setBasicInformationToDetailContainer(${i})">
+              Information
+            </a>
+            |
+            <a onclick="">Stats</a>
+            |
+          </nav>
+          <div id="pokemonDetailContainer"></div>
         </div>`;
+}
+
+function getTemplatesDialogPokemonInfomation(i) {
+  return /*HTML*/ `
+    <div class="basicInfomationContainer">
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Height:</span>
+        <span>${pokemonDetail[i].height}</span>
+      </div>
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Height:</span>
+        <span>${pokemonDetail[i].weight}</span>
+      </div>
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Abilities:</span>
+        <div id="abilitiesContainer" class="abilitiesContainer"></div>
+      </div>
+    </div>`;
+}
+
+function getTemplatesDialogPokemonAbilities(i, j) {
+  return /*HTML*/ `
+  <span>${pokemonDetail[i].abilities[j].ability.name}</span>`;
 }

@@ -7,7 +7,7 @@ dialog {
 
 dialog.opened {
   background-color: rgb(9, 81, 203);
-  width: 50%;
+  width: 300px;
   height: 90%;
   max-width: 1440px;
   display: flex;
@@ -50,6 +50,7 @@ dialog::backdrop {
   font-weight: 700;
   color: black;
   background-color: white;
+  transition: all 125ms ease-in-out;
 }
 
 .closeBtnDialog:hover {
@@ -67,7 +68,7 @@ dialog::backdrop {
 .pokemonImgBoxDialog {
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 15px;
 }
 
@@ -81,8 +82,62 @@ dialog::backdrop {
   font-weight: 500;
   color: white;
   background-color: rgba(28, 74, 153, 0.5);
+  transition: all 125ms ease-in-out;
 }
 
 .pokemonChangeBtn:hover {
   cursor: pointer;
+  background-color: rgb(123, 122, 122);
+}
+
+.dialogPokemonDetailNav {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid white;
+  cursor: default;
+}
+
+.dialogPokemonDetailNav a:hover {
+  cursor: pointer;
+  color: rgb(2, 55, 82);
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.basicInfomationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.basicInfomationBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.291);
+  border-radius: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 4px;
+}
+
+.headlineDetail {
+  border-bottom: 1px solid white;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.abilitiesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
