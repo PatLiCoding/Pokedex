@@ -19,10 +19,12 @@
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/typ.css">
     <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/dialog.css">
     <link rel="stylesheet" href="./style/footer.css" />
 
     <!--script-->
     <script src="./script/templates.js" defer></script>
+    <script src="./script/dialog.js" defer></script>
     <script src="./script/script.js" defer></script>
   </head>
   <body onload="init()">
@@ -52,6 +54,23 @@
         </div>
         <div id="pokedexContant"></div>
         </div>
+
+        <dialog
+          id="dialog"
+          onclick="eventBubbling(event)"
+        >
+          <div id="diaContent" onclick="stopPropagation(event)">
+                <button
+                  class="closeBtnDialog"
+                  aria-label="Dialog close"
+                  tabindex="0"
+                  onclick="closeDialog()">
+                  X
+                </button>
+                <div id="dialogPokemonContent" class="dialogPokemonContent"></div>
+            </div>
+        </dialog>
+
       </section>
     </main>
 

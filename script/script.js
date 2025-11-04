@@ -39,8 +39,8 @@ function renderPokedex() {
   }
 }
 
-function renderPokemonTyp(j) {
-  for (let i = 0; i < pokemonDetail[j].types.length; i++) {
-    document.getElementById(`id${j}`).innerHTML += getTemplatesPokedexTyp(j, i);
+function renderPokemonTyp(i) {
+  for (let j = 0; j < pokemonDetail[i].types.length; j++) {
+    document.getElementById(`id${i}`).innerHTML += getTemplatesPokedexTyp(i, j);
   }
 }
