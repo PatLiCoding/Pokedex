@@ -61,7 +61,7 @@ function getTemplatesDialogPokedexContent(i) {
               Information
             </a>
             |
-            <a onclick="">Stats</a>
+            <a onclick="setStatsToDetailContainer(${i})">Stats</a>
             |
           </nav>
           <div id="pokemonDetailContainer"></div>
@@ -89,4 +89,12 @@ function getTemplatesDialogPokemonInfomation(i) {
 function getTemplatesDialogPokemonAbilities(i, j) {
   return /*HTML*/ `
   <span>${pokemonDetail[i].abilities[j].ability.name}</span>`;
+}
+
+function getTemplatesDialogPokemonStats(i, j) {
+  return /*HTML*/ `
+    <div>
+      <span>${pokemonDetail[i].stats[j].stat.name}</span>
+      <span>${pokemonDetail[i].stats[j].base_stat}</span>
+    </div>`;
 }

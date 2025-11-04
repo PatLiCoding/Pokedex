@@ -46,6 +46,15 @@ function setBasicInformationToDetailContainer(i) {
   renderPokemonAbilitiesDialog(i);
 }
 
+function setStatsToDetailContainer(i) {
+  document.getElementById("pokemonDetailContainer").innerHTML = "";
+
+  for (let j = 0; j < pokemonDetail[i].stats.length; j++) {
+    document.getElementById("pokemonDetailContainer").innerHTML +=
+      getTemplatesDialogPokemonStats(i, j);
+  }
+}
+
 function closeDialog() {
   dialogRef.close();
   showBody();
