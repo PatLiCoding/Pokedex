@@ -35,7 +35,7 @@ function getTemplatesPokedexTyp(i, j) {
 function getTemplatesDialogPokedexContent(i) {
   return /*HTML*/ `
         <div class="dialogPokemonContent">
-          <div class="pokemonCardHeadline">
+          <div class="pokemonDialogHeadline">
             <p>#${i + 1}</p>
             <h2>${
               pokemonDetail[i].name.charAt(0).toUpperCase() +
@@ -93,8 +93,13 @@ function getTemplatesDialogPokemonAbilities(i, j) {
 
 function getTemplatesDialogPokemonStats(i, j) {
   return /*HTML*/ `
-    <div>
-      <span>${pokemonDetail[i].stats[j].stat.name}</span>
-      <span>${pokemonDetail[i].stats[j].base_stat}</span>
+    <div class="statsBox">
+      <span>${
+        pokemonDetail[i].stats[j].stat.name.charAt(0).toUpperCase() +
+        pokemonDetail[i].stats[j].stat.name.slice(1, 8).toLowerCase() +
+        pokemonDetail[i].stats[j].stat.name.charAt(8).toUpperCase() +
+        pokemonDetail[i].stats[j].stat.name.slice(9).toLowerCase()
+      }:</span>
+      <span> ${pokemonDetail[i].stats[j].base_stat}</span>
     </div>`;
 }

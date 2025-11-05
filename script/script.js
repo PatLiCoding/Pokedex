@@ -1,8 +1,6 @@
 let pokemon = [];
 let pokemonDetail = [];
 
-console.log(pokemonDetail);
-
 async function init() {
   pokemon = await fetchPokemon();
   await fetchPokemonDetail();

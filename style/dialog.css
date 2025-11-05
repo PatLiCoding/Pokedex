@@ -8,7 +8,7 @@ dialog {
 dialog.opened {
   background-color: rgb(9, 81, 203);
   width: 300px;
-  height: 90%;
+  height: 600px;
   max-width: 1440px;
   display: flex;
   flex-direction: column;
@@ -56,13 +56,21 @@ dialog::backdrop {
 .closeBtnDialog:hover {
   cursor: pointer;
   color: white;
-  background-color: rgb(2, 55, 82);
+  background-color: rgba(255, 255, 255, 0.291);
 }
 
 .dialogPokemonContent {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.pokemonDialogHeadline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
 }
 
 .pokemonImgBoxDialog {
@@ -140,4 +148,15 @@ dialog::backdrop {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.statsBox {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.291);
+  border-radius: 15px;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+  gap: 8px;
+  cursor: default;
 }
