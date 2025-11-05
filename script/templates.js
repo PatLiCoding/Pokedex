@@ -2,7 +2,7 @@ function getTemplatesPokedexContent(i) {
   return /*HTML*/ `
         <div class="pokemonContainer" onclick="openDialog(${i})">
           <div class="pokemonCardHeadline">
-            <p>#${i + 1}</p>
+            <p>#${pokemonDetail[i].id}</p>
             <h2>${
               pokemonDetail[i].name.charAt(0).toUpperCase() +
               pokemonDetail[i].name.slice(1).toLowerCase()
@@ -30,6 +30,11 @@ function getTemplatesPokedexTyp(i, j) {
     pokemonDetail[i].types[j].type.name.charAt(0).toUpperCase() +
     pokemonDetail[i].types[j].type.name.slice(1).toLowerCase()
   }</p>`;
+}
+
+function getTemplatesLoadingBtn(i) {
+  return /*HTML*/ `
+  <button class="morePokemonBtn" onclick="init(${i})">More</button>`;
 }
 
 function getTemplatesDialogPokedexContent(i) {
@@ -76,7 +81,7 @@ function getTemplatesDialogPokemonInfomation(i) {
         <span>${pokemonDetail[i].height}</span>
       </div>
       <div class="basicInfomationBox">
-        <span class="headlineDetail">Height:</span>
+        <span class="headlineDetail">Weight:</span>
         <span>${pokemonDetail[i].weight}</span>
       </div>
       <div class="basicInfomationBox">

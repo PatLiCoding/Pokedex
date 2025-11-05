@@ -16,6 +16,7 @@ dialog.opened {
   justify-content: space-between;
   padding: 0;
   border-radius: 15px;
+  scrollbar-width: none;
 }
 
 dialog.opened::backdrop {
@@ -122,6 +123,7 @@ dialog::backdrop {
   justify-content: center;
   gap: 8px;
   cursor: default;
+  padding-bottom: 24px;
 }
 
 .basicInfomationBox {
