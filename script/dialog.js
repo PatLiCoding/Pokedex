@@ -80,13 +80,18 @@ function changeToPreviousPokemon(i) {
   }
 }
 
-function changeToNextPokemon(i) {
+async function changeToNextPokemon(i) {
   if (i < pokemon.results.length - 1) {
-    document.getElementById("dialogPokemonContent").innerHTML =
-      getTemplatesDialogPokedexContent(i + 1);
-    renderPokemonTypDialog(i + 1);
-    renderPokemonDialog(i + 1);
+    await renderNextPokemonDialog(i);
   } else {
-    closeDialog();
+    await init(i + 21);
+    await renderNextPokemonDialog(i);
   }
+}
+
+async function renderNextPokemonDialog(i) {
+  document.getElementById("dialogPokemonContent").innerHTML =
+    getTemplatesDialogPokedexContent(i + 1);
+  renderPokemonTypDialog(i + 1);
+  renderPokemonDialog(i + 1);
 }
