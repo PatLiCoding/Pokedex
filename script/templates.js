@@ -1,6 +1,8 @@
 function getTemplatesPokedexContent(i) {
   return /*HTML*/ `
-        <div class="pokemonContainer" onclick="openDialog(${i})">
+        <div class="pokemonContainer" onclick="openDialog(${
+          pokemonDetail[i].id - 1
+        })">
           <div class="pokemonCardHeadline">
             <p>#${pokemonDetail[i].id}</p>
             <h2>${
@@ -34,8 +36,10 @@ function getTemplatesPokedexTyp(i, j) {
 
 function getTemplatesLoadingBtn(i) {
   return /*HTML*/ `
-  <button class="morePokemonBtn" onclick="init(${i})">More</button>`;
+  <button class="Btn" onclick="init(${i})">More</button>`;
 }
+
+//Dialog Section
 
 function getTemplatesDialogPokedexContent(i) {
   return /*HTML*/ `
@@ -107,4 +111,47 @@ function getTemplatesDialogPokemonStats(i, j) {
       }:</span>
       <span> ${pokemonDetail[i].stats[j].base_stat}</span>
     </div>`;
+}
+
+//Search Section
+
+function getTemplatesPokedexContentSearch(i) {
+  return /*HTML*/ `
+        <div class="pokemonContainer" onclick="openDialog(${
+          searchResult[i].id - 1
+        })">
+          <div class="pokemonCardHeadline">
+            <p>#${searchResult[i].id}</p>
+            <h2>${
+              searchResult[i].name.charAt(0).toUpperCase() +
+              searchResult[i].name.slice(1).toLowerCase()
+            }</h2>
+          </div>
+          <div class="pokemonImgBox bg${
+            searchResult[i].types[0].type.name.charAt(0).toUpperCase() +
+            searchResult[i].types[0].type.name.slice(1).toLowerCase()
+          }"">
+            <img class="pokemonImage" src="${
+              searchResult[i].sprites.front_default
+            }">
+          </div>
+          <div id="id${i}" class="typBox">
+          </div>
+        </div>`;
+}
+
+function getTemplatesPokedexTypSearch(i, j) {
+  return /*HTML*/ `
+    <p class="bgBorder bg${
+      searchResult[i].types[j].type.name.charAt(0).toUpperCase() +
+      searchResult[i].types[j].type.name.slice(1).toLowerCase()
+    }"> ${
+    searchResult[i].types[j].type.name.charAt(0).toUpperCase() +
+    searchResult[i].types[j].type.name.slice(1).toLowerCase()
+  }</p>`;
+}
+
+function getTemplatesRemoveSearchBtn() {
+  return /*HTML*/ `
+  <button class="Btn" onclick="removeSearch()">Search Delet</button>`;
 }

@@ -104,13 +104,13 @@ h1 {
   cursor: default;
 }
 
-.loadingMoreBtnSection {
+.BtnSection {
   display: flex;
   justify-content: center;
   padding-bottom: 24px;
 }
 
-.morePokemonBtn {
+.Btn {
   padding: 8px 16px;
   font-size: 20px;
   font-weight: 600;
@@ -120,7 +120,7 @@ h1 {
   border-radius: 25px;
 }
 
-.morePokemonBtn:hover {
+.Btn:hover {
   cursor: pointer;
   background-color: white;
   color: black;
