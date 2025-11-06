@@ -1,5 +1,7 @@
 let pokemon = [];
 let pokemonDetail = [];
+const pokedexContantRef = document.getElementById("pokedexContant");
+const btnSectionRef = document.getElementById("btnSection");
 
 async function init(i) {
   pokemon = await fetchPokemon(i);
@@ -35,11 +37,10 @@ async function fetchPokemonDetail() {
 }
 
 function renderPokedex() {
-  document.getElementById("pokedexContant").innerHTML = "";
+  pokedexContantRef.innerHTML = "";
 
   for (let i = 0; i < pokemonDetail.length; i++) {
-    document.getElementById("pokedexContant").innerHTML +=
-      getTemplatesPokedexContent(i);
+    pokedexContantRef.innerHTML += getTemplatesPokedexContent(i);
     renderPokemonTyp(i);
   }
 }
@@ -53,5 +54,5 @@ function renderPokemonTyp(i) {
 function renderLoadingBtn(i) {
   i = i + 20;
 
-  document.getElementById("btnSection").innerHTML = getTemplatesLoadingBtn(i);
+  btnSectionRef.innerHTML = getTemplatesLoadingBtn(i);
 }

@@ -1,19 +1,16 @@
 let searchResult = [];
+const searchInputRef = document.getElementById("searchInput");
 
 function searchPokemon() {
-  let searchInputRef = document.getElementById("searchInput");
   let searchValue = searchInputRef.value.toLowerCase();
 
   if (searchValue.length >= 3) {
     searchResult = pokemonDetail.filter((pokemon) =>
       pokemon.name.includes(searchValue)
     );
-    if (searchResult.length == 0) {
-      document.getElementById("pokedexContant").innerHTML =
-        getTemplatesPlaceholder();
-    } else {
-      renderPokedexSearch(searchResult);
-    }
+    searchResult.length == 0
+      ? (pokedexContantRef.innerHTML = getTemplatesPlaceholder())
+      : renderPokedexSearch(searchResult);
     removeSearchBtn();
   } else {
     renderPokedex();
@@ -21,11 +18,10 @@ function searchPokemon() {
 }
 
 function renderPokedexSearch(searchResult) {
-  document.getElementById("pokedexContant").innerHTML = "";
+  pokedexContantRef.innerHTML = "";
 
   for (let i = 0; i < searchResult.length; i++) {
-    document.getElementById("pokedexContant").innerHTML +=
-      getTemplatesPokedexContentSearch(i);
+    pokedexContantRef.innerHTML += getTemplatesPokedexContentSearch(i);
     renderPokemonTypSearch(i);
   }
 }
@@ -40,15 +36,12 @@ function renderPokemonTypSearch(i) {
 }
 
 function removeSearchBtn() {
-  document.getElementById("btnSection").innerHTML =
-    getTemplatesRemoveSearchBtn();
+  btnSectionRef.innerHTML = getTemplatesRemoveSearchBtn();
 }
 
 function removeSearch() {
   searchResult = [];
-  document.getElementById("searchInput").value = "";
+  searchInputRef.value = "";
   renderPokedex();
-  document.getElementById("btnSection").innerHTML = getTemplatesLoadingBtn(
-    pokemonDetail.length + 20
-  );
+  btnSectionRef.innerHTML = getTemplatesLoadingBtn(pokemonDetail.length + 20);
 }

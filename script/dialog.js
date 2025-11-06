@@ -1,4 +1,5 @@
 const dialogRef = document.getElementById("dialog");
+const dialogPokemonContentRef = document.getElementById("dialogPokemonContent");
 
 function eventBubbling(event) {
   if (event.target === dialogRef) {
@@ -18,8 +19,7 @@ function openDialog(i) {
 }
 
 function renderPokemonDialog(i) {
-  document.getElementById("dialogPokemonContent").innerHTML =
-    getTemplatesDialogPokedexContent(i);
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i);
   renderPokemonTypDialog(i);
   setBasicInformationToDetailContainer(i);
 }
@@ -71,8 +71,7 @@ function showBody() {
 
 function changeToPreviousPokemon(i) {
   if (i > 0) {
-    document.getElementById("dialogPokemonContent").innerHTML =
-      getTemplatesDialogPokedexContent(i - 1);
+    dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i - 1);
     renderPokemonTypDialog(i - 1);
     renderPokemonDialog(i - 1);
   } else {
@@ -90,8 +89,7 @@ async function changeToNextPokemon(i) {
 }
 
 async function renderNextPokemonDialog(i) {
-  document.getElementById("dialogPokemonContent").innerHTML =
-    getTemplatesDialogPokedexContent(i + 1);
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i + 1);
   renderPokemonTypDialog(i + 1);
   renderPokemonDialog(i + 1);
 }
