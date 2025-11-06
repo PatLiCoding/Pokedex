@@ -131,3 +131,29 @@ h1 {
   justify-content: center;
   text-align: center;
 }
+
+/*LoadingSpinner*/
+.loadingspinnerContainer {
+  display: none;
+  justify-content: center;
+  padding-top: 20px;
+  width: 98%;
+  will-change: transform;
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingspinnerImage {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  opacity: 0.6;
+}

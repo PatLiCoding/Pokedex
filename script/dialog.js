@@ -80,6 +80,8 @@ function changeToPreviousPokemon(i) {
 }
 
 async function changeToNextPokemon(i) {
+  document.getElementById(`nextBtn${i}`).disabled = true;
+
   if (i < pokemon.results.length - 1) {
     await renderNextPokemonDialog(i);
   } else {

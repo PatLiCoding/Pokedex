@@ -9,7 +9,7 @@ function searchPokemon() {
       pokemon.name.includes(searchValue)
     );
     searchResult.length == 0
-      ? (pokedexContantRef.innerHTML = getTemplatesPlaceholder())
+      ? (pokedexContantRef.innerHTML = getTemplatesUnsuccessfulSearch())
       : renderPokedexSearch(searchResult);
     removeSearchBtn();
   } else {

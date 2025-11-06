@@ -39,6 +39,14 @@ function getTemplatesLoadingBtn(i) {
   <button class="btn" onclick="init(${i})">More</button>`;
 }
 
+function getTemplatesPlaceholderByLoading() {
+  return /*HTML*/ `
+  <p class="placeholderContent">
+    It's take a time.<br>
+    Please wait for Pokémon.
+  </p>`;
+}
+
 //Dialog Section
 
 function getTemplatesDialogPokedexContent(i) {
@@ -61,7 +69,7 @@ function getTemplatesDialogPokedexContent(i) {
             <img class="pokemonImageDialog" src="${
               pokemonDetail[i].sprites.front_default
             }">
-            <button class="pokemonChangeBtn" onclick="changeToNextPokemon(${i})">></button>
+            <button id="nextBtn${i}" class="pokemonChangeBtn" onclick="changeToNextPokemon(${i})">></button>
           </div>
           <div id="idDialog${i}" class="typBox"></div>
           <nav class="dialogPokemonDetailNav">
@@ -156,7 +164,7 @@ function getTemplatesRemoveSearchBtn() {
   <button class="btn" onclick="removeSearch()">Search Delet</button>`;
 }
 
-function getTemplatesPlaceholder() {
+function getTemplatesUnsuccessfulSearch() {
   return /*HTML*/ `
   <p class="placeholderContent">
     Found no Pokémon in the loading Database.<br>
