@@ -85,8 +85,8 @@ async function changeToNextPokemon(i) {
   if (i < pokemon.results.length - 1) {
     await renderNextPokemonDialog(i);
   } else {
-    await init(i + 21);
-    await renderNextPokemonDialog(i);
+    closeDialog();
+    window.scrollTo(0, document.body.scrollHeight);
   }
 }
 

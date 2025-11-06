@@ -7,12 +7,12 @@ const loadingspinnerContainerRef = document.getElementById(
   "loadingspinnerContainer"
 );
 
-async function init(i) {
+async function init(i, j) {
   startLoadingspinner();
-  pokemon = await fetchPokemon(i);
+  pokemon = await fetchPokemon(i, j);
   await fetchPokemonDetail();
   renderPokedex();
-  renderLoadingBtn(i);
+  renderLoadingBtn(i, j);
   stopLoadingspinner();
 }
 
@@ -30,11 +30,11 @@ function stopLoadingspinner() {
   loadingspinnerContainerRef.style.display = "none";
 }
 
-async function fetchPokemon(i) {
+async function fetchPokemon(i, j) {
   let responseJson = [];
   try {
     let response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=${i}&offset=0`
+      `https://pokeapi.co/api/v2/pokemon?limit=${i}&offset=${j}`
     );
     responseJson = await response.json();
   } catch (error) {
@@ -44,10 +44,8 @@ async function fetchPokemon(i) {
 }
 
 async function fetchPokemonDetail() {
-  pokemonDetail = [];
-
   try {
-    for (let i = 0; i < pokemon.results.length; i++) {
+    for (let i = 0; i < 20; i++) {
       let response = await fetch(pokemon.results[i].url);
       pokemonDetail.push(await response.json());
     }
@@ -71,8 +69,9 @@ function renderPokemonTyp(i) {
   }
 }
 
-function renderLoadingBtn(i) {
+function renderLoadingBtn(i, j) {
+  j = i;
   i = i + 20;
 
-  btnSectionRef.innerHTML = getTemplatesLoadingBtn(i);
+  btnSectionRef.innerHTML = getTemplatesLoadingBtn(i, j);
 }

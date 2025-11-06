@@ -34,9 +34,9 @@ function getTemplatesPokedexTyp(i, j) {
   }</p>`;
 }
 
-function getTemplatesLoadingBtn(i) {
+function getTemplatesLoadingBtn(i, j) {
   return /*HTML*/ `
-  <button class="btn" onclick="init(${i})">Load More</button>`;
+  <button class="btn" onclick="init(${i}, ${j})">Load More</button>`;
 }
 
 function getTemplatesloadingtextContainer() {
