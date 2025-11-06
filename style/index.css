@@ -104,13 +104,13 @@ h1 {
   cursor: default;
 }
 
-.BtnSection {
+.btnSection {
   display: flex;
   justify-content: center;
   padding-bottom: 24px;
 }
 
-.Btn {
+.btn {
   padding: 8px 16px;
   font-size: 20px;
   font-weight: 600;
@@ -120,7 +120,7 @@ h1 {
   border-radius: 25px;
 }
 
-.Btn:hover {
+.btn:hover {
   cursor: pointer;
   background-color: white;
   color: black;

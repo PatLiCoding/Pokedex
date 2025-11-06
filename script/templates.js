@@ -36,7 +36,7 @@ function getTemplatesPokedexTyp(i, j) {
 
 function getTemplatesLoadingBtn(i) {
   return /*HTML*/ `
-  <button class="Btn" onclick="init(${i})">More</button>`;
+  <button class="btn" onclick="init(${i})">More</button>`;
 }
 
 //Dialog Section
@@ -153,5 +153,5 @@ function getTemplatesPokedexTypSearch(i, j) {
 
 function getTemplatesRemoveSearchBtn() {
   return /*HTML*/ `
-  <button class="Btn" onclick="removeSearch()">Search Delet</button>`;
+  <button class="btn" onclick="removeSearch()">Search Delet</button>`;
 }
