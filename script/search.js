@@ -14,6 +14,7 @@ function searchPokemon() {
     removeSearchBtn();
   } else {
     renderPokedex();
+    btnSectionRef.innerHTML = getTemplatesLoadingBtn(pokemonDetail.length + 20);
   }
 }
 

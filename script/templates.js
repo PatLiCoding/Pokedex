@@ -36,14 +36,14 @@ function getTemplatesPokedexTyp(i, j) {
 
 function getTemplatesLoadingBtn(i) {
   return /*HTML*/ `
-  <button class="btn" onclick="init(${i})">More</button>`;
+  <button class="btn" onclick="init(${i})">Load More</button>`;
 }
 
-function getTemplatesPlaceholderByLoading() {
+function getTemplatesloadingtextContainer() {
   return /*HTML*/ `
   <p class="placeholderContent">
-    It's take a time.<br>
-    Please wait for Pokémon.
+    This may take a moment.<br>
+    Please wait while we load your Pokémon.
   </p>`;
 }
 
@@ -75,7 +75,7 @@ function getTemplatesDialogPokedexContent(i) {
           <nav class="dialogPokemonDetailNav">
             |
             <a onclick="setBasicInformationToDetailContainer(${i})">
-              Information
+              Details
             </a>
             |
             <a onclick="setStatsToDetailContainer(${i})">Stats</a>
@@ -161,13 +161,13 @@ function getTemplatesPokedexTypSearch(i, j) {
 
 function getTemplatesRemoveSearchBtn() {
   return /*HTML*/ `
-  <button class="btn" onclick="removeSearch()">Search Delet</button>`;
+  <button class="btn" onclick="removeSearch()">Clear Search</button>`;
 }
 
 function getTemplatesUnsuccessfulSearch() {
   return /*HTML*/ `
   <p class="placeholderContent">
-    Found no Pokémon in the loading Database.<br>
-    You write it wrong or it's not loading in the Database.
+    No Pokémon found in the loading database.<br>
+    The name is incorrect or not in the loading database.
   </p>`;
 }

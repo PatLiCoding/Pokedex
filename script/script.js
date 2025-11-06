@@ -2,7 +2,7 @@ let pokemon = [];
 let pokemonDetail = [];
 const pokedexContantRef = document.getElementById("pokedexContant");
 const btnSectionRef = document.getElementById("btnSection");
-const placeholderContantRef = document.getElementById("placeholderContant");
+const loadingtextContainerRef = document.getElementById("loadingtextContainer");
 const loadingspinnerContainerRef = document.getElementById(
   "loadingspinnerContainer"
 );
@@ -19,14 +19,14 @@ async function init(i) {
 function startLoadingspinner() {
   pokedexContantRef.style.display = "none";
   btnSectionRef.style.display = "none";
-  placeholderContantRef.innerHTML = getTemplatesPlaceholderByLoading();
+  loadingtextContainerRef.innerHTML = getTemplatesloadingtextContainer();
   loadingspinnerContainerRef.style.display = "flex";
 }
 
 function stopLoadingspinner() {
   pokedexContantRef.style.display = "flex";
   btnSectionRef.style.display = "flex";
-  placeholderContantRef.innerHTML = "";
+  loadingtextContainerRef.innerHTML = "";
   loadingspinnerContainerRef.style.display = "none";
 }
 
