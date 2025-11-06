@@ -155,3 +155,11 @@ function getTemplatesRemoveSearchBtn() {
   return /*HTML*/ `
   <button class="btn" onclick="removeSearch()">Search Delet</button>`;
 }
+
+function getTemplatesPlaceholder() {
+  return /*HTML*/ `
+  <p class="placeholderContent">
+    Found no Pokémon in the loading Database.<br>
+    You write it wrong or it's not loading in the Database.
+  </p>`;
+}

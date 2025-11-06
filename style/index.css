@@ -125,3 +125,9 @@ h1 {
   background-color: white;
   color: black;
 }
+
+.placeholderContent {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

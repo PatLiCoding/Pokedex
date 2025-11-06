@@ -8,7 +8,12 @@ function searchPokemon() {
     searchResult = pokemonDetail.filter((pokemon) =>
       pokemon.name.includes(searchValue)
     );
-    renderPokedexSearch(searchResult);
+    if (searchResult.length == 0) {
+      document.getElementById("pokedexContant").innerHTML =
+        getTemplatesPlaceholder();
+    } else {
+      renderPokedexSearch(searchResult);
+    }
     removeSearchBtn();
   } else {
     renderPokedex();
