@@ -10,7 +10,10 @@ function searchPokemon() {
   } else {
     pokedexContantRef.innerHTML = "";
     renderPokedex();
-    btnSectionRef.innerHTML = getTemplatesLoadingBtn(pokemonDetail.length + 20);
+    btnSectionRef.innerHTML = getTemplatesLoadingBtn(
+      pokemonDetail.length + 20,
+      pokemonDetail.length
+    );
   }
 }
 
