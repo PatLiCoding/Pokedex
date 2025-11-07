@@ -15,7 +15,7 @@ function getTemplatesPokedexContent(i) {
             pokemonDetail[i].types[0].type.name.slice(1).toLowerCase()
           }"">
             <img class="pokemonImage" src="${
-              pokemonDetail[i].sprites.front_default
+              pokemonDetail[i].sprites.other["official-artwork"].front_default
             }">
           </div>
           <div id="id${i}" class="typBox">
@@ -67,7 +67,7 @@ function getTemplatesDialogPokedexContent(i) {
             <
             </button>
             <img class="pokemonImageDialog" src="${
-              pokemonDetail[i].sprites.front_default
+              pokemonDetail[i].sprites.other["official-artwork"].front_default
             }">
             <button id="nextBtn${i}" class="pokemonChangeBtn" onclick="changeToNextPokemon(${i})">></button>
           </div>
