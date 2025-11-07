@@ -9,8 +9,7 @@ const loadingspinnerContainerRef = document.getElementById(
 
 async function init(i, j) {
   startLoadingspinner();
-  pokemon = await fetchPokemon(i, j);
-  await fetchPokemonDetail();
+  await fetchPokemon(i, j);
   renderPokedex();
   renderLoadingBtn(i, j);
   stopLoadingspinner();
@@ -30,28 +29,21 @@ function stopLoadingspinner() {
   loadingspinnerContainerRef.style.display = "none";
 }
 
-async function fetchPokemon(i, j) {
-  let responseJson = [];
-  try {
-    let response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=${i}&offset=${j}`
-    );
-    responseJson = await response.json();
-  } catch (error) {
-    console.log(error);
+async function fetchPokemon(i) {
+  let response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?limit=${i}&offset=0`
+  );
+  pokemon = await response.json();
+  let responsesAsPromise = [];
+  for (let index = 0; index < pokemon.results.length; index++) {
+    responsesAsPromise.push(getPokemonDetails(pokemon.results[index]));
   }
-  return responseJson;
+  pokemonDetail = await Promise.all(responsesAsPromise);
 }
 
-async function fetchPokemonDetail() {
-  try {
-    for (let i = 0; i < 20; i++) {
-      let response = await fetch(pokemon.results[i].url);
-      pokemonDetail.push(await response.json());
-    }
-  } catch (error) {
-    console.log(error);
-  }
+async function getPokemonDetails(singledata) {
+  let response = await fetch(singledata.url);
+  return await response.json();
 }
 
 function renderPokedex() {

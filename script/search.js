@@ -1,3 +1,4 @@
+let allPokemon = [];
 let searchResult = [];
 const searchInputRef = document.getElementById("searchInput");
 
@@ -18,12 +19,29 @@ function searchPokemon() {
 }
 
 function filterPokemon(searchValue) {
-  searchResult = pokemonDetail.filter((pokemon) =>
+  searchResult = allPokemon.filter((pokemon) =>
     pokemon.name.includes(searchValue)
   );
   searchResult.length == 0
     ? (pokedexContantRef.innerHTML = getTemplatesUnsuccessfulSearch())
     : renderPokedexSearch(searchResult);
+}
+
+async function promiseAll() {
+  let response = await fetch(
+    "https://pokeapi.co/api/v2/pokemon?limit=1025&offset=0"
+  );
+  let data = await response.json();
+  let responsesAsPromise = [];
+  for (let index = 0; index < data.results.length; index++) {
+    responsesAsPromise.push(getPokemonDetailsSearch(data.results[index]));
+  }
+  allPokemon = await Promise.all(responsesAsPromise);
+}
+
+async function getPokemonDetailsSearch(singledata) {
+  let response = await fetch(singledata.url);
+  return await response.json();
 }
 
 function renderPokedexSearch(searchResult) {
@@ -47,7 +65,6 @@ function removeSearchBtn() {
 }
 
 function removeSearch() {
-  searchResult = [];
   searchInputRef.value = "";
   renderPokedex();
   btnSectionRef.innerHTML = getTemplatesLoadingBtn(
