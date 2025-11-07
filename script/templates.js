@@ -53,7 +53,7 @@ function getTemplatesDialogPokedexContent(i) {
   return /*HTML*/ `
         <div class="dialogPokemonContent">
           <div class="pokemonDialogHeadline">
-            <p>#${i + 1}</p>
+            <p>#${pokemonDetail[i].id}</p>
             <h2>${
               pokemonDetail[i].name.charAt(0).toUpperCase() +
               pokemonDetail[i].name.slice(1).toLowerCase()
@@ -125,9 +125,7 @@ function getTemplatesDialogPokemonStats(i, j) {
 
 function getTemplatesPokedexContentSearch(i) {
   return /*HTML*/ `
-        <div class="pokemonContainer" onclick="openDialog(${
-          searchResult[i].id - 1
-        })">
+        <div class="pokemonContainer" onclick="openDialogSearch(${i})">
           <div class="pokemonCardHeadline">
             <p>#${searchResult[i].id}</p>
             <h2>${
@@ -138,12 +136,12 @@ function getTemplatesPokedexContentSearch(i) {
           <div class="pokemonImgBox bg${
             searchResult[i].types[0].type.name.charAt(0).toUpperCase() +
             searchResult[i].types[0].type.name.slice(1).toLowerCase()
-          }"">
+          }">
             <img class="pokemonImage" src="${
-              searchResult[i].sprites.front_default
+              searchResult[i].sprites.other["official-artwork"].front_default
             }">
           </div>
-          <div id="id${i}" class="typBox">
+          <div id="idSearch${i}" class="typBox">
           </div>
         </div>`;
 }
@@ -170,4 +168,77 @@ function getTemplatesUnsuccessfulSearch() {
     No Pokémon found in the loading database.<br>
     The name is incorrect or not in the loading database.
   </p>`;
+}
+
+//Search Dialog
+function getTemplatesDialogPokedexContentSearch(i) {
+  return /*HTML*/ `
+        <div class="dialogPokemonContent">
+          <div class="pokemonDialogHeadline">
+            <p>#${searchResult[i].id}</p>
+            <h2>${
+              searchResult[i].name.charAt(0).toUpperCase() +
+              searchResult[i].name.slice(1).toLowerCase()
+            }</h2>
+          </div>
+          <div class="pokemonImgBoxDialog bg${
+            searchResult[i].types[0].type.name.charAt(0).toUpperCase() +
+            searchResult[i].types[0].type.name.slice(1).toLowerCase()
+          }">
+            <button class="pokemonChangeBtn" onclick="changeToPreviousPokemonSearch(${i})">
+            <
+            </button>
+            <img class="pokemonImageDialog" src="${
+              searchResult[i].sprites.other["official-artwork"].front_default
+            }">
+            <button id="nextSearchBtn${i}" class="pokemonChangeBtn" onclick="changeToNextPokemonSearch(${i})">></button>
+          </div>
+          <div id="idDialogSearch${i}" class="typBox"></div>
+          <nav class="dialogPokemonDetailNav">
+            |
+            <a onclick="setBasicInformationToDetailContainerSearch(${i})">
+              Details
+            </a>
+            |
+            <a onclick="setStatsToDetailContainerSearch(${i})">Stats</a>
+            |
+          </nav>
+          <div id="pokemonDetailContainerSearch"></div>
+        </div>`;
+}
+
+function getTemplatesDialogPokemonInfomationSearch(i) {
+  return /*HTML*/ `
+    <div class="basicInfomationContainer">
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Height:</span>
+        <span>${searchResult[i].height}</span>
+      </div>
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Weight:</span>
+        <span>${searchResult[i].weight}</span>
+      </div>
+      <div class="basicInfomationBox">
+        <span class="headlineDetail">Abilities:</span>
+        <div id="abilitiesContainerSearch" class="abilitiesContainer"></div>
+      </div>
+    </div>`;
+}
+
+function getTemplatesDialogPokemonAbilitiesSearch(i, j) {
+  return /*HTML*/ `
+  <span>${searchResult[i].abilities[j].ability.name}</span>`;
+}
+
+function getTemplatesDialogPokemonStatsSearch(i, j) {
+  return /*HTML*/ `
+    <div class="statsBox">
+      <span>${
+        searchResult[i].stats[j].stat.name.charAt(0).toUpperCase() +
+        searchResult[i].stats[j].stat.name.slice(1, 8).toLowerCase() +
+        searchResult[i].stats[j].stat.name.charAt(8).toUpperCase() +
+        searchResult[i].stats[j].stat.name.slice(9).toLowerCase()
+      }:</span>
+      <span> ${searchResult[i].stats[j].base_stat}</span>
+    </div>`;
 }

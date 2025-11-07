@@ -83,6 +83,8 @@ dialog::backdrop {
 
 .pokemonImageDialog {
   height: 180px;
+  width: 180px;
+  object-fit: cover;
 }
 
 .pokemonChangeBtn {
