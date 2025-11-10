@@ -1,8 +1,6 @@
 function getTemplatesPokedexContent(i) {
   return /*HTML*/ `
-        <div class="pokemonContainer" onclick="openDialog(${
-          pokemonDetail[i].id - 1
-        })">
+        <div class="pokemonContainer" onclick="openDialog(${i})">
           <div class="pokemonCardHeadline">
             <p>#${pokemonDetail[i].id}</p>
             <h2>${
@@ -13,7 +11,7 @@ function getTemplatesPokedexContent(i) {
           <div class="pokemonImgBox bg${
             pokemonDetail[i].types[0].type.name.charAt(0).toUpperCase() +
             pokemonDetail[i].types[0].type.name.slice(1).toLowerCase()
-          }"">
+          }">
             <img class="pokemonImage" src="${
               pokemonDetail[i].sprites.other["official-artwork"].front_default
             }">
@@ -36,7 +34,7 @@ function getTemplatesPokedexTyp(i, j) {
 
 function getTemplatesLoadingBtn(i, j) {
   return /*HTML*/ `
-  <button class="btn" onclick="init(${i}, ${j})">Load More</button>`;
+  <button class="btn" onclick="loadMorePokemon(${i}, ${j})">Load More</button>`;
 }
 
 function getTemplatesloadingtextContainer() {
@@ -49,7 +47,7 @@ function getTemplatesloadingtextContainer() {
 
 //Dialog Section
 
-function getTemplatesDialogPokedexContent(i) {
+function getTemplatesDialogContent(i) {
   return /*HTML*/ `
         <div class="dialogPokemonContent">
           <div class="pokemonDialogHeadline">
@@ -62,7 +60,7 @@ function getTemplatesDialogPokedexContent(i) {
           <div class="pokemonImgBoxDialog bg${
             pokemonDetail[i].types[0].type.name.charAt(0).toUpperCase() +
             pokemonDetail[i].types[0].type.name.slice(1).toLowerCase()
-          }"">
+          }">
             <button class="pokemonChangeBtn" onclick="changeToPreviousPokemon(${i})">
             <
             </button>
@@ -74,18 +72,18 @@ function getTemplatesDialogPokedexContent(i) {
           <div id="idDialog${i}" class="typBox"></div>
           <nav class="dialogPokemonDetailNav">
             |
-            <a onclick="setBasicInformationToDetailContainer(${i})">
+            <a onclick="setInformationContainer(${i})">
               Details
             </a>
             |
-            <a onclick="setStatsToDetailContainer(${i})">Stats</a>
+            <a onclick="setStatsContainer(${i})">Stats</a>
             |
           </nav>
           <div id="pokemonDetailContainer"></div>
         </div>`;
 }
 
-function getTemplatesDialogPokemonInfomation(i) {
+function getTemplatesInfomation(i) {
   return /*HTML*/ `
     <div class="basicInfomationContainer">
       <div class="basicInfomationBox">
@@ -103,12 +101,12 @@ function getTemplatesDialogPokemonInfomation(i) {
     </div>`;
 }
 
-function getTemplatesDialogPokemonAbilities(i, j) {
+function getTemplatesAbilities(i, j) {
   return /*HTML*/ `
   <span>${pokemonDetail[i].abilities[j].ability.name}</span>`;
 }
 
-function getTemplatesDialogPokemonStats(i, j) {
+function getTemplatesStats(i, j) {
   return /*HTML*/ `
     <div class="statsBox">
       <span>${
@@ -123,7 +121,7 @@ function getTemplatesDialogPokemonStats(i, j) {
 
 //Search Section
 
-function getTemplatesPokedexContentSearch(i) {
+function getTemplatesContentSearch(i) {
   return /*HTML*/ `
         <div class="pokemonContainer" onclick="openDialogSearch(${i})">
           <div class="pokemonCardHeadline">
@@ -146,7 +144,7 @@ function getTemplatesPokedexContentSearch(i) {
         </div>`;
 }
 
-function getTemplatesPokedexTypSearch(i, j) {
+function getTemplatesTypSearch(i, j) {
   return /*HTML*/ `
     <p class="bgBorder bg${
       searchResult[i].types[j].type.name.charAt(0).toUpperCase() +
@@ -171,7 +169,7 @@ function getTemplatesUnsuccessfulSearch() {
 }
 
 //Search Dialog
-function getTemplatesDialogPokedexContentSearch(i) {
+function getTemplatesDialogContentSearch(i) {
   return /*HTML*/ `
         <div class="dialogPokemonContent">
           <div class="pokemonDialogHeadline">
@@ -196,18 +194,18 @@ function getTemplatesDialogPokedexContentSearch(i) {
           <div id="idDialogSearch${i}" class="typBox"></div>
           <nav class="dialogPokemonDetailNav">
             |
-            <a onclick="setBasicInformationToDetailContainerSearch(${i})">
+            <a onclick="setInformationContainerSearch(${i})">
               Details
             </a>
             |
-            <a onclick="setStatsToDetailContainerSearch(${i})">Stats</a>
+            <a onclick="setStatsContainerSearch(${i})">Stats</a>
             |
           </nav>
           <div id="pokemonDetailContainerSearch"></div>
         </div>`;
 }
 
-function getTemplatesDialogPokemonInfomationSearch(i) {
+function getTemplatesInfomationSearch(i) {
   return /*HTML*/ `
     <div class="basicInfomationContainer">
       <div class="basicInfomationBox">
@@ -225,12 +223,12 @@ function getTemplatesDialogPokemonInfomationSearch(i) {
     </div>`;
 }
 
-function getTemplatesDialogPokemonAbilitiesSearch(i, j) {
+function getTemplatesAbilitiesSearch(i, j) {
   return /*HTML*/ `
   <span>${searchResult[i].abilities[j].ability.name}</span>`;
 }
 
-function getTemplatesDialogPokemonStatsSearch(i, j) {
+function getTemplatesStatsSearch(i, j) {
   return /*HTML*/ `
     <div class="statsBox">
       <span>${

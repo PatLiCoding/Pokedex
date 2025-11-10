@@ -15,16 +15,16 @@ function openDialog(i) {
   dialogRef.showModal();
   hiddenBody();
   dialogRef.classList.add("opened");
-  renderPokemonDialog(i);
+  renderDialog(i);
 }
 
-function renderPokemonDialog(i) {
-  dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i);
-  renderPokemonTypDialog(i);
-  setBasicInformationToDetailContainer(i);
+function renderDialog(i) {
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i);
+  renderTypDialog(i);
+  setInformationContainer(i);
 }
 
-function renderPokemonTypDialog(i) {
+function renderTypDialog(i) {
   for (let j = 0; j < pokemonDetail[i].types.length; j++) {
     document.getElementById(`idDialog${i}`).innerHTML += getTemplatesPokedexTyp(
       i,
@@ -33,25 +33,25 @@ function renderPokemonTypDialog(i) {
   }
 }
 
-function renderPokemonAbilitiesDialog(i) {
+function renderAbilities(i) {
   for (let j = 0; j < pokemonDetail[i].abilities.length; j++) {
     document.getElementById("abilitiesContainer").innerHTML +=
-      getTemplatesDialogPokemonAbilities(i, j);
+      getTemplatesAbilities(i, j);
   }
 }
 
-function setBasicInformationToDetailContainer(i) {
+function setInformationContainer(i) {
   document.getElementById("pokemonDetailContainer").innerHTML =
-    getTemplatesDialogPokemonInfomation(i);
-  renderPokemonAbilitiesDialog(i);
+    getTemplatesInfomation(i);
+  renderAbilities(i);
 }
 
-function setStatsToDetailContainer(i) {
+function setStatsContainer(i) {
   document.getElementById("pokemonDetailContainer").innerHTML = "";
 
   for (let j = 0; j < pokemonDetail[i].stats.length; j++) {
     document.getElementById("pokemonDetailContainer").innerHTML +=
-      getTemplatesDialogPokemonStats(i, j);
+      getTemplatesStats(i, j);
   }
 }
 
@@ -71,9 +71,9 @@ function showBody() {
 
 function changeToPreviousPokemon(i) {
   if (i > 0) {
-    dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i - 1);
-    renderPokemonTypDialog(i - 1);
-    renderPokemonDialog(i - 1);
+    dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i - 1);
+    renderTypDialog(i - 1);
+    renderDialog(i - 1);
   } else {
     closeDialog();
   }
@@ -91,7 +91,7 @@ async function changeToNextPokemon(i) {
 }
 
 async function renderNextPokemonDialog(i) {
-  dialogPokemonContentRef.innerHTML = getTemplatesDialogPokedexContent(i + 1);
-  renderPokemonTypDialog(i + 1);
-  renderPokemonDialog(i + 1);
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i + 1);
+  renderTypDialog(i + 1);
+  renderDialog(i + 1);
 }

@@ -8,6 +8,11 @@ const loadingspinnerContainerRef = document.getElementById(
 );
 
 async function init(i, j) {
+  promiseAll();
+  await loadMorePokemon(i, j);
+}
+
+async function loadMorePokemon(i, j) {
   startLoadingspinner();
   await fetchPokemon(i, j);
   renderPokedex();
@@ -18,6 +23,7 @@ async function init(i, j) {
 function startLoadingspinner() {
   pokedexContantRef.style.display = "none";
   btnSectionRef.style.display = "none";
+  document.getElementById("searchInput").style.display = "none";
   loadingtextContainerRef.innerHTML = getTemplatesloadingtextContainer();
   loadingspinnerContainerRef.style.display = "flex";
 }
@@ -25,6 +31,7 @@ function startLoadingspinner() {
 function stopLoadingspinner() {
   pokedexContantRef.style.display = "flex";
   btnSectionRef.style.display = "flex";
+  document.getElementById("searchInput").style.display = "flex";
   loadingtextContainerRef.innerHTML = "";
   loadingspinnerContainerRef.style.display = "none";
 }
