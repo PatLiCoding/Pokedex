@@ -55,6 +55,7 @@ function getTemplatesRemoveSearchBtn() {
 function getTemplatesDialogContent(i, array) {
   return /*HTML*/ `
         <div class="dialogPokemonContent">
+        <div class="pokemonDialogStyle">
           <div class="pokemonDialogHeadline">
             <p>#${array[i].id}</p>
             <h2>${
@@ -75,6 +76,8 @@ function getTemplatesDialogContent(i, array) {
             <button id="nextBtn${i}" class="pokemonChangeBtn" onclick="currentSearchCheckNext(${i})">></button>
           </div>
           <div id="idDialog${i}" class="typBox"></div>
+          </div>
+          <div class="pokemonDialogStyle">
           <nav class="dialogPokemonDetailNav">
             |
             <a onclick="currentSearchCheckInfo(${i})">
@@ -85,6 +88,7 @@ function getTemplatesDialogContent(i, array) {
             |
           </nav>
           <div id="pokemonDetailContainer"></div>
+          </div>
         </div>`;
 }
 
