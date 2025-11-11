@@ -1,6 +1,7 @@
 let allPokemon = [];
 let searchResult = [];
 const searchInputRef = document.getElementById("searchInput");
+let currentSearch = false;
 
 function searchPokemon() {
   let searchValue = searchInputRef.value.toLowerCase();
@@ -8,6 +9,7 @@ function searchPokemon() {
   if (searchValue.length >= 3) {
     filterPokemon(searchValue);
     removeSearchBtn();
+    currentSearch = true;
   } else {
     pokedexContantRef.innerHTML = "";
     renderPokedex();
@@ -15,6 +17,7 @@ function searchPokemon() {
       pokemonDetail.length + 20,
       pokemonDetail.length
     );
+    currentSearch = false;
   }
 }
 
@@ -44,20 +47,22 @@ async function getDetailsSearch(singledata) {
   return await response.json();
 }
 
-function renderPokedexSearch(searchResult) {
+function renderPokedexSearch() {
   pokedexContantRef.innerHTML = "";
+  let array = searchResult;
 
   for (let i = 0; i < searchResult.length; i++) {
-    pokedexContantRef.innerHTML += getTemplatesContentSearch(i);
-    renderTypSearch(i);
+    pokedexContantRef.innerHTML += getTemplatesPokedexContent(i, array);
+    renderTypSearch(i, array);
   }
 }
 
-function renderTypSearch(i) {
+function renderTypSearch(i, array) {
   for (let j = 0; j < searchResult[i].types.length; j++) {
-    document.getElementById(`idSearch${i}`).innerHTML += getTemplatesTypSearch(
+    document.getElementById(`id${i}`).innerHTML += getTemplatesPokedexTyp(
       i,
-      j
+      j,
+      array
     );
   }
 }
@@ -69,6 +74,7 @@ function removeSearchBtn() {
 function removeSearch() {
   searchInputRef.value = "";
   renderPokedex();
+  currentSearch = false;
   btnSectionRef.innerHTML = getTemplatesLoadingBtn(
     pokemonDetail.length + 20,
     pokemonDetail.length
@@ -84,37 +90,45 @@ function openDialogSearch(i) {
 }
 
 function renderDialogSearch(i) {
-  dialogPokemonContentRef.innerHTML = getTemplatesDialogContentSearch(i);
+  let array = searchResult;
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i, array);
+  currentSearchCheckInfo(i);
   renderTypDialogSearch(i);
-  setInformationContainerSearch(i);
 }
 
 function renderTypDialogSearch(i) {
+  let array = searchResult;
   for (let j = 0; j < searchResult[i].types.length; j++) {
-    document.getElementById(`idDialogSearch${i}`).innerHTML +=
-      getTemplatesTypSearch(i, j);
+    document.getElementById(`idDialog${i}`).innerHTML += getTemplatesPokedexTyp(
+      i,
+      j,
+      array
+    );
   }
 }
 
 function renderAbilitiesSearch(i) {
+  let array = searchResult;
   for (let j = 0; j < searchResult[i].abilities.length; j++) {
-    document.getElementById("abilitiesContainerSearch").innerHTML +=
-      getTemplatesAbilitiesSearch(i, j);
+    document.getElementById("abilitiesContainer").innerHTML +=
+      getTemplatesAbilities(i, j, array);
   }
 }
 
 function setInformationContainerSearch(i) {
-  document.getElementById("pokemonDetailContainerSearch").innerHTML =
-    getTemplatesInfomationSearch(i);
-  renderAbilitiesSearch(i);
+  let array = searchResult;
+  document.getElementById("pokemonDetailContainer").innerHTML =
+    getTemplatesInfomation(i, array);
+  renderAbilitiesSearch(i, array);
 }
 
 function setStatsContainerSearch(i) {
-  document.getElementById("pokemonDetailContainerSearch").innerHTML = "";
+  document.getElementById("pokemonDetailContainer").innerHTML = "";
+  let array = searchResult;
 
   for (let j = 0; j < searchResult[i].stats.length; j++) {
-    document.getElementById("pokemonDetailContainerSearch").innerHTML +=
-      getTemplatesStatsSearch(i, j);
+    document.getElementById("pokemonDetailContainer").innerHTML +=
+      getTemplatesStats(i, j, array);
   }
 }
 
@@ -125,26 +139,28 @@ function closeDialogSearch() {
 }
 
 function changeToPreviousPokemonSearch(i) {
+  let array = searchResult;
   if (i > 0) {
-    dialogPokemonContentRef.innerHTML = getTemplatesDialogContentSearch(i - 1);
-    renderTypDialogSearch(i - 1);
-    renderDialogSearch(i - 1);
+    dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i - 1, array);
+    renderTypDialogSearch(i - 1, array);
+    renderDialogSearch(i - 1, array);
   } else {
     closeDialog();
   }
 }
 
 async function changeToNextPokemonSearch(i) {
-  document.getElementById(`nextSearchBtn${i}`).disabled = true;
+  document.getElementById(`nextBtn${i}`).disabled = true;
+  let array = searchResult;
 
   if (i < searchResult.length - 1) {
-    await renderNextPokemonDialogSearch(i);
+    await renderNextPokemonDialogSearch(i, array);
   } else {
     closeDialog();
   }
 }
 
-async function renderNextPokemonDialogSearch(i) {
-  dialogPokemonContentRef.innerHTML = getTemplatesDialogContentSearch(i + 1);
+async function renderNextPokemonDialogSearch(i, array) {
+  dialogPokemonContentRef.innerHTML = getTemplatesDialogContent(i + 1, array);
   renderDialogSearch(i + 1);
 }

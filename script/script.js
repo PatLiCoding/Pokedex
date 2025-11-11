@@ -55,22 +55,58 @@ async function getPokemonDetails(singledata) {
 
 function renderPokedex() {
   pokedexContantRef.innerHTML = "";
+  let array = pokemonDetail;
 
   for (let i = 0; i < pokemonDetail.length; i++) {
-    pokedexContantRef.innerHTML += getTemplatesPokedexContent(i);
-    renderPokemonTyp(i);
+    pokedexContantRef.innerHTML += getTemplatesPokedexContent(i, array);
+    renderPokemonTyp(i, array);
   }
 }
 
-function renderPokemonTyp(i) {
+function renderPokemonTyp(i, pokemonDetail) {
   for (let j = 0; j < pokemonDetail[i].types.length; j++) {
-    document.getElementById(`id${i}`).innerHTML += getTemplatesPokedexTyp(i, j);
+    document.getElementById(`id${i}`).innerHTML += getTemplatesPokedexTyp(
+      i,
+      j,
+      pokemonDetail
+    );
   }
 }
 
 function renderLoadingBtn(i, j) {
+  let array = pokemonDetail;
   j = i;
   i = i + 20;
 
-  btnSectionRef.innerHTML = getTemplatesLoadingBtn(i, j);
+  btnSectionRef.innerHTML = getTemplatesLoadingBtn(i, j, array);
+}
+
+function currentSearchCheckDialog(i) {
+  currentSearch == false ? openDialog(i) : openDialogSearch(i);
+}
+
+function currentSearchCheckTyp(i) {
+  currentSearch == false ? renderTypDialog(i) : renderTypDialogSearch(i);
+}
+
+function currentSearchCheckInfo(i) {
+  currentSearch == false
+    ? setInformationContainer(i)
+    : setInformationContainerSearch(i);
+}
+
+function currentSearchCheckStats(i) {
+  currentSearch == false ? setStatsContainer(i) : setStatsContainerSearch(i);
+}
+
+function currentSearchCheckNext(i) {
+  currentSearch == false
+    ? changeToNextPokemon(i)
+    : changeToNextPokemonSearch(i);
+}
+
+function currentSearchCheckPrevious(i) {
+  currentSearch == false
+    ? changeToPreviousPokemon(i)
+    : changeToPreviousPokemonSearch(i);
 }
