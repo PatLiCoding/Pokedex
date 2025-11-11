@@ -65,15 +65,15 @@
           id="dialog"
           onclick="eventBubbling(event)"
         >
-          <div id="diaContent" onclick="stopPropagation(event)">
-                <button
-                  class="closeBtnDialog"
-                  aria-label="Dialog close"
-                  tabindex="0"
-                  onclick="closeDialog()">
-                  X
-                </button>
-                <div id="dialogPokemonContent" class="dialogPokemonContent"></div>
+          <div id="diaContent" class="dialogPokemonContent" onclick="stopPropagation(event)">
+                <div id="dialogPokemonContent" ></div>
+                  <button
+            class="closeBtnDialog"
+            aria-label="Dialog close"
+            tabindex="0"
+            onclick="closeDialog()">
+            X
+          </button>
             </div>
         </dialog>
 

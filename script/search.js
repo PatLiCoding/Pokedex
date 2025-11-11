@@ -85,7 +85,7 @@ function openDialogSearch(i) {
 
 function renderDialogSearch(i) {
   dialogPokemonContentRef.innerHTML = getTemplatesDialogContentSearch(i);
-  renderTypSearch(i);
+  renderTypDialogSearch(i);
   setInformationContainerSearch(i);
 }
 
